@@ -1,6 +1,6 @@
 export default async function handler(req, res) {
 
-const API_KEY = "YOUR_GEMINI_API_KEY";
+const API_KEY = "AIzaSyDHdP6fJ4ax85b6UMc50bIefRyfSHTVJsk";
 
 const { message } = req.body;
 
