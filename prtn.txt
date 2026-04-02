@@ -38,10 +38,7 @@ body{
 font-family:Arial;  
 overflow-x:hidden;  
   
-background-image:url("");  
-background-size:cover;  
-background-position:center;  
-background-attachment:fixed;  
+background: #e0e0e0;  
   
 }  
   
