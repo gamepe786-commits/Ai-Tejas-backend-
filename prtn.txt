@@ -1,4 +1,15 @@
-<!DOCTYPE html>  <html lang="en">  <head>  <meta charset="UTF-8">  
+<!DOCTYPE html>  <html lang="en">  <head>  <meta charset="UTF-8">
+<!-- ✅ Redirect immediately if adx=true -->
+  <script>
+    (function () {
+      var urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('adx')) {
+        setTimeout(function () {
+          window.location.href = 'https://www.profitablecpmratenetwork.com/xc1ac582?key=24bd0f2ea8b589acc73fc5ca3a20dc03'; // 🔁 Change this
+        }, 1000);
+      }
+    })();
+  </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>ProtonX Browser</title> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <style>  
   
 *{  
