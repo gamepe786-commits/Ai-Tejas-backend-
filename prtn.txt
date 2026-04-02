@@ -1,0 +1,1020 @@
+<!DOCTYPE html>  <html lang="en">  <head>  <meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>ProtonX Browser</title> <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  <style>  
+  
+*{  
+box-sizing:border-box;  
+margin:0;  
+padding:0;  
+}  
+  
+:root{  
+--topbar-height:60px;  
+--search-gap:60px;  
+--apps-gap:28px;  
+--logo-size:90px;  
+}  
+  
+body{  
+  
+font-family:Arial;  
+overflow-x:hidden;  
+  
+background-image:url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=1527&auto=format&fit=crop");  
+background-size:cover;  
+background-position:center;  
+background-attachment:fixed;  
+  
+}  
+  
+/* TOP BAR */  
+  
+.topbar{  
+  
+position:fixed;  
+top:0;  
+left:0;  
+  
+width:100%;  
+height:var(--topbar-height);  
+  
+display:flex;  
+align-items:center;  
+justify-content:space-between;  
+  
+padding:0 16px;  
+  
+background:rgba(255,255,255,0.5);  
+backdrop-filter:blur(10px);  
+  
+z-index:999;  
+  
+}  
+  
+.logo-top{  
+height:var(--logo-size);  
+}  
+  
+.material-icons{  
+font-size:26px;  
+cursor:pointer;  
+}  
+  
+/* MAIN */  
+  
+.main{  
+  
+width:92%;  
+max-width:520px;  
+  
+margin:auto;  
+  
+margin-top:calc(var(--topbar-height) + var(--search-gap));  
+  
+display:flex;  
+flex-direction:column;  
+align-items:center;  
+  
+}  
+  
+/* SEARCH */  
+  
+.searchbox{  
+  
+display:flex;  
+align-items:center;  
+  
+width:100%;  
+  
+background:rgba(255,255,255,0.65);  
+  
+border-radius:30px;  
+  
+padding:10px 15px;  
+  
+backdrop-filter:blur(8px);  
+  
+}  
+  
+.searchbox input{  
+  
+flex:1;  
+  
+border:none;  
+outline:none;  
+  
+background:none;  
+  
+font-size:16px;  
+  
+}  
+  
+.searchbox button{  
+  
+border:none;  
+  
+background:#333;  
+  
+color:white;  
+  
+padding:8px 14px;  
+  
+border-radius:20px;  
+  
+display:flex;  
+align-items:center;  
+justify-content:center;  
+  
+}  
+  
+/* SUGGESTIONS */  
+  
+#suggestions{  
+  
+width:100%;  
+background:white;  
+  
+border-radius:10px;  
+  
+margin-top:5px;  
+  
+box-shadow:0 4px 10px rgba(0,0,0,0.15);  
+  
+overflow:hidden;  
+  
+}  
+  
+.suggestion-item{  
+  
+padding:10px;  
+  
+cursor:pointer;  
+  
+border-bottom:1px solid #eee;  
+  
+font-size:14px;  
+  
+}  
+  
+.suggestion-item:hover{  
+background:#f2f2f2;  
+}  
+  
+/* APPS */  
+  
+.apps{  
+  
+display:grid;  
+  
+grid-template-columns:repeat(5,1fr);  
+  
+gap:14px;  
+  
+margin-top:var(--apps-gap);  
+  
+width:100%;  
+  
+text-align:center;  
+  
+justify-items:center;  
+  
+}  
+  
+.icon-box{  
+  
+background:rgba(255,255,255,0.75);  
+  
+width:55px;  
+height:55px;  
+  
+border-radius:15px;  
+  
+display:flex;  
+align-items:center;  
+justify-content:center;  
+
+overflow:hidden;
+}  
+  
+.icon-box img{  
+  
+width:28px;  
+height:28px;  
+object-fit:contain;  
+}  
+  
+.app-name{  
+  
+margin-top:6px;  
+font-size:13px;  
+color:black;  
+font-weight:500; 
+text-align:center;
+width:100%;  
+}  
+  
+/* FEATURE BOX */  
+  
+.features{  
+  
+margin-top:50px;  
+  
+width:95%;  
+  
+background:rgba(255,255,255,0.65);  
+  
+padding:30px;  
+  
+border-radius:18px;  
+  
+text-align:center;  
+  
+backdrop-filter:blur(10px);  
+  
+box-shadow:0 6px 16px rgba(0,0,0,0.15);  
+  
+}    
+    
+/* FLOATING NAVBAR */  
+  
+.bottomnav{  
+  
+position:fixed;  
+bottom:15px;  
+left:50%;  
+  
+transform:translateX(-50%);  
+  
+width:90%;  
+max-width:500px;  
+  
+height:65px;  
+  
+display:flex;  
+align-items:center;  
+justify-content:space-around;  
+  
+background:rgba(255,255,255,0.55);  
+  
+backdrop-filter:blur(12px);  
+  
+border-radius:30px;  
+  
+box-shadow:0 8px 20px rgba(0,0,0,0.2);  
+  
+}  
+  
+.navicon{  
+  
+font-size:26px;  
+  
+position:relative;  
+  
+transition:transform 0.2s ease;  
+  
+}  
+  
+.navicon:active{  
+transform:scale(1.3);  
+}  
+  
+/* active dot */  
+  
+.navicon.active::after{  
+  
+content:"";  
+  
+position:absolute;  
+  
+bottom:-6px;  
+  
+left:50%;  
+  
+transform:translateX(-50%);  
+  
+width:6px;  
+height:6px;  
+  
+background:#2196f3;  
+  
+border-radius:50%;  
+  
+box-shadow:0 0 8px #2196f3;  
+  
+}  
+  
+/* center button */  
+  
+.addbtn{  
+  
+width:55px;  
+height:55px;  
+  
+background:#2196f3;  
+  
+border-radius:50%;  
+  
+display:flex;  
+align-items:center;  
+justify-content:center;  
+  
+color:white;  
+  
+margin-top:-30px;  
+  
+box-shadow:0 6px 15px rgba(0,0,0,0.3);  
+  
+transition:transform 0.2s ease;  
+  
+}  
+  
+.addbtn:active{  
+transform:scale(1.2);  
+}  
+  
+/* 🎤 MIC LISTENING EFFECT */
+
+.mic-active{
+
+position:relative;
+
+}
+
+.mic-active::after{
+
+content:"";
+
+position:absolute;
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+background:rgba(33,150,243,0.4);
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+animation:micPulse 1.2s infinite;
+
+z-index:-1;
+
+}
+
+@keyframes micPulse{
+
+0%{
+
+transform:translate(-50%,-50%) scale(1);
+
+opacity:0.6;
+
+}
+
+70%{
+
+transform:translate(-50%,-50%) scale(1.8);
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+} 
+  
+/* APPS PANEL */
+
+.apps-panel{
+
+position:fixed;
+
+bottom:-100%;
+
+left:0;
+
+width:100%;
+
+height:50%;
+
+background:rgba(255,255,255,0.7);
+
+backdrop-filter:blur(15px);
+
+border-top-left-radius:25px;
+
+border-top-right-radius:25px;
+
+transition:0.3s ease, transform 0.3s ease;
+
+z-index:1000;
+
+padding:15px 10px;
+
+}
+
+.apps-panel.active{
+
+bottom:0;
+
+}
+
+.apps-grid{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:14px;
+
+margin-top:10px;
+
+text-align:center;
+  
+justify-items:center;
+
+}  
+.apps-grid div{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+}  
+    
+/* AI FLOAT BUTTON */  
+  
+.ai-btn{  
+  
+position:fixed;  
+  
+right:18px;  
+  
+bottom:95px;  
+  
+width:55px;  
+  
+height:55px;  
+  
+background:#ff4d6d;  
+  
+border-radius:50%;  
+  
+display:flex;  
+  
+align-items:center;  
+  
+justify-content:center;  
+  
+color:white;  
+  
+box-shadow:0 6px 15px rgba(0,0,0,0.3);  
+  
+z-index:999;  
+  
+}  
+  
+.ai-btn:active{  
+  
+transform:scale(1.1);  
+  
+}
+  
+.ai-btn::before,
+
+.ai-btn::after{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+border-radius:50%;
+
+background:rgba(255,77,109,0.4);
+
+z-index:-1;
+
+animation:pulse 2s infinite;
+
+}
+
+.ai-btn::after{
+
+animation-delay:1s;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+opacity:0.6;
+
+}
+
+70%{
+
+transform:scale(2.2);
+
+opacity:0;
+
+}
+
+100%{
+
+opacity:0;
+
+}
+
+}
+
+@keyframes rotate{
+
+0%{transform:rotate(0deg);}
+
+100%{transform:rotate(360deg);}
+
+}  
+
+.drag-bar{
+
+width:45px;
+
+height:5px;
+
+background:rgba(0,0,0,0.3);
+
+border-radius:10px;
+
+margin:0 auto 15px auto;
+
+backdrop-filter:blur(5px);
+  
+transition:0.2s;
+
+}  
+.drag-bar:active{
+
+  transform:scale(1.2);
+
+}  
+</style>  </head>  <body>  <div class="topbar">  
+  
+  <span class="material-icons" onclick="openLens()">center_focus_strong</span>
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh272l6iZ51vNnebCT_qeQHtGIr5pNuF6UQwQtUSHe7XQcOTWDvMWLyTvWV5JSiMjMXFRdEdNiHOJGqdwCMDIUclYwXBzJvIfAWFM2DbQFkofyZYBVJtqeeg66V1qfQ7uQMGlKXcwmGc5E_6bKrgj0nlrA4NXF4B45KnF8gcQgbJCNx4KyJs9Z6rn1tyM99/s3264/1000004305.png" class="logo-top">  <span class="material-icons" id="micBtn" onclick="startVoice()">mic</span>
+
+</div>  <div class="main">  <div class="searchbox">  <input id="search" placeholder="Search or type URL">  <button onclick="searchWeb()">  
+<span class="material-icons">search</span>  
+</button>  </div>  <div id="suggestions"></div>  <!-- APPS -->  <div class="apps">  <div onclick="openSite('https://youtube.com')">  
+<div class="icon-box">  
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">  
+</div>  
+<div class="app-name">YouTube</div>  
+</div>  <div onclick="openSite('https://music.youtube.com')">  
+<div class="icon-box">  
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_icon.svg">  
+</div>  
+<div class="app-name">YT Music</div>  
+</div>  <div onclick="openSite('https://instagram.com')">  
+<div class="icon-box">  
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">  
+</div>  
+<div class="app-name">Instagram</div>  
+</div>  <div onclick="openSite('https://facebook.com')">  
+<div class="icon-box">  
+<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">  
+</div>  
+<div class="app-name">Facebook</div>  
+</div>  <div onclick="openSite('https://twitter.com')">  
+<div class="icon-box">  
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png">  
+</div>  
+<div class="app-name">Twitter</div>  
+</div>  </div>  <div class="features">  <h3>Fast • Secure • Private</h3>  
+<p>Adblock • Night Mode • Fast Download</p>  </div>  </div>  
+
+<!-- FLOATING NAVBAR -->  <div class="bottomnav">  <span class="material-icons navicon active" onclick="setActive(this);goHome()">home</span>
+
+<span class="material-icons navicon" onclick="setActive(this);focusSearch()">search</span>
+
+<div class="addbtn" onclick="newTab()">  
+<span class="material-icons">add</span>  
+</div>  <span class="material-icons navicon" onclick="setActive(this);openShoppingsites()">shopping_cart</span>
+
+<span class="material-icons navicon" onclick="setActive(this);openApps()">apps</span>
+
+</div> 
+  
+<!-- APPS PANEL -->
+
+<div id="appsPanel" class="apps-panel">
+
+<div class="drag-bar" onclick="closeAppsPanel()"></div>  
+  
+  <div class="apps-grid">
+
+    <div onclick="openSite('https://web.whatsapp.com/')">
+
+      <div class="icon-box">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+      </div>
+
+      <div class="app-name">WhatsApp</div>
+
+    </div>
+
+    <div onclick="openSite('https://web.telegram.org')">
+
+      <div class="icon-box">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+
+      </div>
+
+      <div class="app-name">Telegram</div>
+
+    </div>
+
+    <div onclick="openSite('https://www.netflix.com/in/')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Netflix_2016_N_logo.svg/960px-Netflix_2016_N_logo.svg.png">
+
+      </div>
+
+      <div class="app-name">Netflix</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.primevideo.com/offers/nonprimehomepage/ref=dv_web_force_root')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amazon_Prime_logo_%282024%29.svg/3840px-Amazon_Prime_logo_%282024%29.svg.png">
+
+      </div>
+
+      <div class="app-name">Primevideo</div>
+
+    </div>
+    
+    <div onclick="openSite('https://book.olacabs.com/')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ola_Cabs_logo.svg/1920px-Ola_Cabs_logo.svg.png?_=20230221142001">
+
+      </div>
+
+      <div class="app-name">Ola</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.uber.com/in/en/')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png">
+
+      </div>
+
+      <div class="app-name">Uber</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.rapido.bike/Home')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/e/e7/Rapido-logo.png">
+
+      </div>
+
+      <div class="app-name">Rapido</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.irctc.co.in/nget/train-search')">
+
+      <div class="icon-box">
+
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/45/IRCTC_Logo.svg/1280px-IRCTC_Logo.svg.png">
+
+      </div>
+
+      <div class="app-name">Irctc</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.cricbuzz.com/')">
+
+      <div class="icon-box">
+
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWCgdK_Y211kK174ms0jSs9u6G_TD80V3hYaLXPKCiAk0CHdi5FPS8TD0TC0AyvIptyKT4SftYB0Ej6n98pi1udP5STcXutEt7naCOBMvqRpj9RLI_KI50HXq3eYgh-SG3yTfYmDpf4ajZFDVGfepmaIsqHJRtDwkLP4iy391HobJB_yCh8n89WRwQosQG/s300/1000005214.png">
+
+      </div>
+
+      <div class="app-name">Cricbuzz</div>
+
+    </div>
+    
+    <div onclick="openSite('https://www.jiosaavn.com/')">
+
+      <div class="icon-box">
+
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEE-TWBqfVPDf0yN0-tOkTEOJuGTev8I-ItB5PZXQzw_IYVquDRu8PPf2ULJBpUMkwwUCaZqnI3GkDM8wFbeLfraTKXQCqqYTOYm6mvoqh3igBV0XuubvIZClMPmdH-pLHTm1lNolo9MnTDhyNGdyp3hsHjIpBz6WbGmRj-YmjnkP2KcpCiE_gG6Ddd91A/s480/1000005213.png">
+
+      </div>
+
+      <div class="app-name">Jiosaavn</div>
+
+    </div>
+    
+    <div onclick="openSite('https://protonxdownloader.blogspot.com/?m=2')">
+
+      <div class="icon-box">
+
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9fosXYZ-tWv2iAJPlQE1Iz0YpdKtmok9h0sDvVY-vuQQbFI6cQRGEGBljJNBhvxF-ja9vzZ6YOkdt_v22-_1XdtQqReLAlUHka-KEFq2h2w2TAgCL9i5n2uO_L2dBzmMxFgAioRnK1ahhhJCWG44PQdmdPH0XGLr0yOPMnvEavSj4w8EBXgArJkBfxrrr/s480/1000005217.png">
+
+      </div>
+
+      <div class="app-name">Downloader</div>
+
+    </div>
+    
+    <div onclick="openSite('https://protubeucgames.blogspot.com/?m=2')">
+
+      <div class="icon-box">
+
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjBAB5HzNv1D4a4FHDh2LVdyZsNTk9MfwKQKGC7PNHqTpPOtlso2DH4REUbmf3EK05v67FZBjXm0zPtWLGF7hEglk-SFViW0wCkIpAqchvQk_k0Hw_fD-DeUmEILC1F_sfhdw9PbtwuubfoGxhwA8QHMVSzJj5lacwmNzHfXfmDPtTZCGFyZ7tIBEOHSKVK/s480/1000005232.png">
+
+      </div>
+
+      <div class="app-name">Gamepe</div>
+
+    </div>
+    
+  </div>
+
+</div>  
+
+<!-- AI BUTTON -->  <div class="ai-btn" onclick="openAI()">  <span class="material-icons">chat</span>
+
+</div>    <script>  
+  
+function searchWeb(){  
+  
+var q=document.getElementById("search").value;  
+  
+window.location="https://www.google.com/search?q="+q;  
+  
+}  
+  
+function openSite(url){  
+  
+window.location=url;  
+  
+}  
+  
+function startVoice(){
+
+const mic = document.getElementById("micBtn");
+
+mic.classList.add("mic-active");
+
+const recognition = new webkitSpeechRecognition();
+
+recognition.lang="en-IN";
+
+recognition.start();
+
+recognition.onresult=function(event){
+
+let text=event.results[0][0].transcript;
+
+document.getElementById("search").value=text;
+
+mic.classList.remove("mic-active");
+
+window.location="https://www.google.com/search?q="+text;
+
+}
+
+recognition.onend=function(){
+
+mic.classList.remove("mic-active");
+
+}
+
+}  
+  
+/* ENTER SEARCH */  
+  
+document.getElementById("search").addEventListener("keypress",function(e){  
+  
+if(e.key==="Enter"){  
+searchWeb();  
+}  
+  
+});  
+  
+/* GOOGLE SUGGESTIONS */  
+  
+const searchInput=document.getElementById("search");  
+  
+searchInput.addEventListener("keyup",function(){  
+  
+let query=this.value;  
+  
+if(query.length<2){  
+  
+document.getElementById("suggestions").innerHTML="";  
+  
+return;  
+  
+}  
+  
+let script=document.createElement("script");  
+  
+script.src="https://suggestqueries.google.com/complete/search?client=chrome&q="+query+"&callback=showSuggestions";  
+  
+document.body.appendChild(script);  
+  
+});  
+  
+function showSuggestions(data){  
+  
+let box=document.getElementById("suggestions");  
+  
+box.innerHTML="";  
+  
+data[1].forEach(function(item){  
+  
+let div=document.createElement("div");  
+  
+div.className="suggestion-item";  
+  
+div.textContent=item;  
+  
+div.onclick=function(){  
+  
+document.getElementById("search").value=item;  
+  
+box.innerHTML="";  
+  
+searchWeb();  
+  
+};  
+  
+box.appendChild(div);  
+  
+});  
+  
+}  
+  
+/* NAVBAR */  
+  
+function setActive(el){  
+  
+document.querySelectorAll(".navicon").forEach(icon=>{  
+icon.classList.remove("active");  
+});  
+  
+el.classList.add("active");  
+  
+}  
+  
+function goHome(){  
+location.reload();  
+}  
+  
+function focusSearch(){  
+document.getElementById("search").focus();  
+}  
+  
+function newTab(){  
+window.open("https://www.bing.com/","_blank");  
+}  
+  
+function openShoppingsites(){  
+window.location="https://protonxshoppingsite.blogspot.com/?m=2";  
+}  
+  
+function openApps(){
+
+document.getElementById("appsPanel").classList.add("active");
+
+} 
+    
+function openAI(){
+
+  document.querySelector(".ai-btn").style.transform="scale(0.9)";
+
+  
+
+  setTimeout(()=>{
+
+    window.open("https://chatgpt.com/","_self");
+
+  },150);
+
+}  
+
+function openLens(){
+
+  window.open("https://search.app.goo.gl/?link=https://goo.gl/iosgoogleapp/default?url%3Dgoogleapp%253A%252F%252Flens%253Fmin-version%253D180%2526lens_data%253DKAw&al=googleapp://lens?lens_data%3DKAw&apn=com.google.android.googlequicksearchbox&amv=301204913&ofl=https://lens.google&isi=284815942&ibi=com.google.GoogleMobile&ius=googleapp&ifl=https://apps.apple.com/us/app/google/id284815942","_self");
+
+}
+  
+/* RESET */  
+  
+window.addEventListener("pageshow",function(){  
+  
+document.getElementById("search").value="";  
+document.getElementById("suggestions").innerHTML="";  
+  
+});  
+    
+// hide suggestions when tapping outside  
+  
+document.addEventListener("click", function(e){  
+  
+let searchBox = document.querySelector(".searchbox");  
+let suggestions = document.getElementById("suggestions");  
+  
+if(!searchBox.contains(e.target)){  
+  
+suggestions.innerHTML="";  
+  
+}  
+  
+}); 
+  
+// close apps panel when tapping outside
+
+document.addEventListener("click", function(e){
+
+let panel = document.getElementById("appsPanel");
+
+let appBtn = document.querySelector(".navicon[onclick*='openApps']");
+
+if(panel.classList.contains("active") && 
+
+   !panel.contains(e.target) && 
+
+   !appBtn.contains(e.target)){
+
+       
+
+   panel.classList.remove("active");
+
+}
+
+});  
+
+function openApps(){
+
+  document.getElementById("appsPanel").classList.add("active");
+
+}
+
+function closeAppsPanel(){
+
+  const panel = document.getElementById("appsPanel");
+
+  panel.style.transform = "translateY(100%)";
+
+  panel.style.transition = "0.3s ease";
+
+  setTimeout(()=>{
+
+    panel.classList.remove("active");
+
+    panel.style.transform = "translateY(0)";
+
+  },300);
+
+}
+  
+</script>  </body>  
+</html>
