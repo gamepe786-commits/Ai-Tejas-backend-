@@ -38,7 +38,7 @@ body{
 font-family:Arial;  
 overflow-x:hidden;  
   
-background-image:url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhw6PY4f_yBHlVjQ0ueZ7dXENOzVf0eXjXqCMzTKk5AvC1CHHBm4JoDpKQQQ1L-RKjjobcPZIfl4VjUm-kwmgZDkq6CCVYVv8SksYO7xvA6ZQTFSNefaqpZEYisTcK0AREZ97wO7qnATbrgggfFI-3BLGsip9VTgQxOTEqqu4MfrBqjvNlTiNz0Bh-mR1K/s1600/c1_20260403_01441295.jpeg");  
+background-image:url("");  
 background-size:cover;  
 background-position:center;  
 background-attachment:fixed;  
@@ -62,7 +62,7 @@ justify-content:space-between;
   
 padding:0 16px;  
   
-background:rgba(255,255,255,0.5);  
+background: #000000;  
 backdrop-filter:blur(10px);  
   
 z-index:999;  
