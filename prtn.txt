@@ -38,8 +38,8 @@ body{
 font-family:Arial;  
 overflow-x:hidden;  
   
-background: #1e1e1e;  
-color:white;  
+background: #121212;  
+color:#2A2A2A;  
 }  
   
 /* TOP BAR */  
