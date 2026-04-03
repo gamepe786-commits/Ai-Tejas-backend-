@@ -38,8 +38,8 @@ body{
 font-family:Arial;  
 overflow-x:hidden;  
   
-background: #121212;  
-color:#2A2A2A;  
+background: #4ECDE3;  
+color:black;  
 }  
   
 /* TOP BAR */  
@@ -59,7 +59,7 @@ justify-content:space-between;
   
 padding:0 16px;  
   
-background:rgba(255,255,255,0.5);  
+background:white;  
 backdrop-filter:blur(10px);  
   
 z-index:999;  
@@ -590,8 +590,51 @@ transition:0.2s;
   transform:scale(1.2);
 
 } 
+.stars{
 
-</style>  </head>  <body>  <div class="topbar">  
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:100%;
+
+  z-index:-1;
+
+  overflow:hidden;
+
+}
+
+.star{
+
+  position:absolute;
+
+  width:2px;
+
+  height:2px;
+
+  background:white;
+
+  border-radius:50%;
+
+  opacity:0.8;
+
+  animation:twinkle 2s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+  from{opacity:0.2;}
+
+  to{opacity:1;}
+
+}
+
+</style>  </head>  <body> <div id="stars"></div> <div class="topbar">  
   
   <span class="material-icons" onclick="openLens()">center_focus_strong</span>
 
@@ -1035,7 +1078,23 @@ function closeAppsPanel(){
   },300);
 
 }
+// RANDOM STARS GENERATOR (FINAL FIX)
 
+const starsContainer = document.getElementById("stars");
+
+for(let i = 0; i < 80; i++){
+
+  let star = document.createElement("div");
+
+  star.classList.add("star");
+
+  star.style.top = Math.random() * 100 + "%";
+
+  star.style.left = Math.random() * 100 + "%";
+
+  starsContainer.appendChild(star);
+
+}
   
 </script>  </body>  
 </html>
