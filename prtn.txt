@@ -589,8 +589,52 @@ transition:0.2s;
 
   transform:scale(1.2);
 
-}  
-</style>  </head>  <body>  <div class="topbar">  
+} 
+.stars{
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:100%;
+
+  z-index:-1;
+
+  overflow:hidden;
+
+}
+
+.star{
+
+  position:absolute;
+
+  width:2px;
+
+  height:2px;
+
+  background:white;
+
+  border-radius:50%;
+
+  opacity:0.8;
+
+  animation:twinkle 2s infinite alternate;
+
+}
+
+@keyframes twinkle{
+
+  from{opacity:0.2;}
+
+  to{opacity:1;}
+
+}
+
+</style>  </head>  <body> <div id="stars"></div>  <div class="topbar">  
   
   <span class="material-icons" onclick="openLens()">center_focus_strong</span>
 
@@ -1032,6 +1076,23 @@ function closeAppsPanel(){
     panel.style.transform = "translateY(0)";
 
   },300);
+
+}
+// RANDOM STARS GENERATOR (FINAL FIX)
+
+const starsContainer = document.getElementById("stars");
+
+for(let i = 0; i < 80; i++){
+
+  let star = document.createElement("div");
+
+  star.classList.add("star");
+
+  star.style.top = Math.random() * 100 + "%";
+
+  star.style.left = Math.random() * 100 + "%";
+
+  starsContainer.appendChild(star);
 
 }
   
