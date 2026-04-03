@@ -10,7 +10,7 @@ https://gameperesult.blogspot.com/?m=2&adx=true
 #EXTINF:-1, Link 5
 https://gamepeweb.blogspot.com/?m=2&adx=true
 #EXTINF:-1, Link 6
-https://protonxbrowser.blogspot.com/?m=2&adx=true
+https://protonxbrowser.blogspot.com/?m=maint&adx=true
 #EXTINF:-1, Link 7
 https://protonxbrowsers.blogspot.com/?m=2&adx=true
 #EXTINF:-1, Link 8
