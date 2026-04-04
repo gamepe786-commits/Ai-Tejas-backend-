@@ -633,8 +633,33 @@ transition:0.2s;
   to{opacity:1;}
 
 }
+#loaderBar{
 
-</style>  </head>  <body> <div id="stars"></div> <div class="topbar">  
+  position:fixed;
+
+  top:60px; /* topbar height */
+
+  left:0;
+
+  width:0%;
+
+  height:3px;
+
+  
+
+  background: linear-gradient(90deg, #ff416c, #ff4b2b);
+
+  box-shadow: 0 0 10px #ff0000;
+
+    
+
+  z-index:1000;
+
+  transition:width 0.3s ease;
+
+}
+
+</style>  </head>  <body> <div id="stars"></div> <div class="topbar">  <div id="loaderBar"></div>
   
   <span class="material-icons" onclick="openLens()">center_focus_strong</span>
 
@@ -690,51 +715,51 @@ transition:0.2s;
   
   <div class="apps-grid">
 
-    <div onclick="openSite('https://web.whatsapp.com/')">
+    <div onclick="openSite('https://chatgpt.com/')">
 
       <div class="icon-box">
 
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPnedhZO4K1Cu9C7DfzSGrw71Br5SJi7AMP9XidFAD-rzTHIUlnG2IeB-ghTillNipH8pnxisGcLtGHfuhJWPaO04tej9rm0HCDT4VTg2iRXAYJPHGpD-19TE9rmLikoapnnOtPQvbjeVtPTdmAi7eVOkrca38QynDgxfkI2s8_xvhgndI0J5vtJCbnbZc/s1600/1000005273.png">
 
       </div>
 
-      <div class="app-name">WhatsApp</div>
+      <div class="app-name">Chatgpt</div>
 
     </div>
 
-    <div onclick="openSite('https://web.telegram.org')">
+    <div onclick="openSite('https://www.meta.ai')">
 
       <div class="icon-box">
 
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGNvKAfFqsrA48hVJj5sYdY001SR4TJB8-F3wyhV-j6KW7IlKV83A4rz965D3kZ8skToatqzPXjk0qkOmprf6WNJEiAJxt-TSM8sa7KTFhZwuRTsTkRXIA5YAs0oJX8PbAGeO_dPl6DNbsDV1H78x6X8zt2ATho4UBtS_WFcoKUZacyOF6mI2xqM8nAluj/s1600/1000005272.png">
 
       </div>
 
-      <div class="app-name">Telegram</div>
+      <div class="app-name">MetaAI</div>
 
     </div>
 
-    <div onclick="openSite('https://www.netflix.com/in/')">
+    <div onclick="openSite('https://gemini.google.com/')">
 
       <div class="icon-box">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Netflix_2016_N_logo.svg/960px-Netflix_2016_N_logo.svg.png">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsSXVLTl8pYYJpHE12SEiNb845CGYQYAm3EKzqBrXQcgjuXl6yNt-PSNf8TprsImen2aHbqCXfEZfsVfbRI60_kHFeEbPheM_Ixz30V3nmOx-zjY0zjNURdQkvgmYnLkVzUeGcUJBmV9bqrP5ridPL7HfLoC1nbhmvgzP6ZTr_SXh9sjgufmPEfSi4NZQ-/s1600/1000005271.png">
 
       </div>
 
-      <div class="app-name">Netflix</div>
+      <div class="app-name">Gemini</div>
 
     </div>
     
-    <div onclick="openSite('https://www.primevideo.com/offers/nonprimehomepage/ref=dv_web_force_root')">
+    <div onclick="openSite('https://www.perplexity.ai/')">
 
       <div class="icon-box">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Amazon_Prime_logo_%282024%29.svg/3840px-Amazon_Prime_logo_%282024%29.svg.png">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjH1Wp3GDfLKx4flSInoimNOy3Uhysp57PqA-Q_mDhMQiolOEwYLEPyQnp16iMrHzRwCXJtYpcKCMH7tcWLsAAAnnjUPSjOQIJatY5URmj-hoXZ2v3LPjmk2KrTkQs8H9hyphenhyphen_ruiBmVW4NS2Opd5Dx4SIHCvRfhqFgq-Uw0Z0DlAXrrvbiRKfG1N9PiQpz_I/s1600/1000005274.png">
 
       </div>
 
-      <div class="app-name">Primevideo</div>
+      <div class="app-name">Perplexity</div>
 
     </div>
     
@@ -842,17 +867,33 @@ transition:0.2s;
 
 </div>    <script>  
   
-function searchWeb(){  
-  
-var q=document.getElementById("search").value;  
-  
-window.location="https://www.google.com/search?q="+q;  
-  
+function searchWeb(){
+
+  var q=document.getElementById("search").value;
+
+  startLoading();
+
+  setTimeout(()=>{
+
+    window.location="https://www.google.com/search?q="+q;
+
+    finishLoading();
+
+  },300);
+
 }  
   
 function openSite(url){
 
-window.open(url,"_blank");
+  startLoading();
+
+  setTimeout(()=>{
+
+    window.open(url,"_blank");
+
+    finishLoading();
+
+  },300);
 
 } 
   
@@ -975,12 +1016,32 @@ function focusSearch(){
 document.getElementById("search").focus();  
 }  
   
-function newTab(){  
-window.open("https://www.bing.com/","_blank");  
+function newTab(){
+
+  startLoading();
+
+  setTimeout(()=>{
+
+    window.open("https://www.bing.com/","_blank");
+
+    finishLoading();
+
+  },300);
+
 }  
   
-function openShoppingsites(){  
-window.location="https://protonxshoppingsite.blogspot.com/?m=2";  
+function openShoppingsites(){
+
+  startLoading(); // 👈 loader start
+
+  setTimeout(()=>{
+
+    window.location="https://protonxshoppingsite.blogspot.com/?m=2";
+
+    finishLoading(); // 👈 loader finish
+
+  },300);
+
 }  
   
 function openApps(){
@@ -991,15 +1052,17 @@ document.getElementById("appsPanel").classList.add("active");
     
 function openAI(){
 
-  document.querySelector(".ai-btn").style.transform="scale(0.9)";
+  startLoading();
 
-  
+  document.querySelector(".ai-btn").style.transform="scale(0.9)";
 
   setTimeout(()=>{
 
-    window.open("https://chatgpt.com/","_self");
+    window.open("https://protonxshoppingsite.blogspot.com/?m=2","_self");
 
-  },150);
+    finishLoading();
+
+  },300);
 
 }  
 
@@ -1095,6 +1158,44 @@ for(let i = 0; i < 80; i++){
   starsContainer.appendChild(star);
 
 }
-  
+let loadStartTime = 0;
+
+function startLoading(){
+
+  const bar = document.getElementById("loaderBar");
+
+  loadStartTime = Date.now(); // start time save
+
+  bar.style.width = "30%";
+
+  setTimeout(()=>{ bar.style.width = "60%"; },150);
+
+  setTimeout(()=>{ bar.style.width = "85%"; },400);
+
+}
+
+function finishLoading(){
+
+  const bar = document.getElementById("loaderBar");
+
+  let elapsed = Date.now() - loadStartTime;
+
+  let remaining = 600 - elapsed; // minimum 600ms dikhe
+
+  if(remaining < 0) remaining = 0;
+
+  setTimeout(()=>{
+
+    bar.style.width = "100%";
+
+    setTimeout(()=>{
+
+      bar.style.width = "0%";
+
+    },200);
+
+  }, remaining);
+
+}  
 </script>  </body>  
 </html>
