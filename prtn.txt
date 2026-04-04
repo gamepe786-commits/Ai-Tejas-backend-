@@ -1058,7 +1058,7 @@ function openAI(){
 
   setTimeout(()=>{
 
-    window.open("https://protonxshoppingsite.blogspot.com/?m=2","_self");
+    window.open("https://www.meta.ai","_self");
 
     finishLoading();
 
