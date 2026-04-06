@@ -807,7 +807,7 @@ transition:0.2s;
 
       </div>
 
-      <div class="app-name">Irctc</div>
+      <div class="app-name">Railyatri</div>
 
     </div>
     
