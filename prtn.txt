@@ -30,7 +30,7 @@ padding:0;
 --topbar-height:60px;  
 --search-gap:60px;  
 --apps-gap:28px;  
---logo-size:60px;  
+--logo-size:70px;  
 }  
   
 body{  
