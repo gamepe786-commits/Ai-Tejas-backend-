@@ -663,7 +663,7 @@ transition:0.2s;
   
   <span class="material-icons" onclick="openLens()">center_focus_strong</span>
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWoKieOCtB5Uz2WejYADSpUOo7tnUye9hZVBfjYY2e-fUzsMRywe4GoU8DcarsYaJEbxmfgYGqgFSqgwX5UxoSAbZOifbMGvl_CYU2RE0UFxpnhKDrrdR9fGSj2LmeynbW2LLu5sYsxYU62qQOJuUX3VdxoDjYzwXZSPRtzvQ1jK7hEshiGJoR0EqX8IEk/s1600/1000005254.png" class="logo-top">  <span class="material-icons" id="micBtn" onclick="startVoice()">mic</span>
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgLLm_nG8aDiFgypcon9ddPijhcouSoGECjCDZBJZtLFxeTn2YksPy2Fo169FKvGmi6Mm2X3sn1mX-rq3ycU_n-FYdfhxNcVaOAI9Xb3OhcrBjMnN5kN6bQiTBKFCSc9ZbS5I7gL59BVIonqgU1IrT01ZjSx3gGhIh1CAdDUNK8o-cOyadIdqVj30tlf5Vg/s1600/ProtonXBrowserzWatermark.png" class="logo-top">  <span class="material-icons" id="micBtn" onclick="startVoice()">mic</span>
 
 </div>  <div class="main">  <div class="searchbox">  <input id="search" placeholder="Search or type URL">  <button onclick="searchWeb()">  
 <span class="material-icons">search</span>  
