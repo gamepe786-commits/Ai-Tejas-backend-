@@ -1324,6 +1324,11 @@ function openAI(){
   },300);
 
 }
+function openLens(){
+
+  window.open("https://search.app.goo.gl/?link=https://goo.gl/iosgoogleapp/default?url%3Dgoogleapp%253A%252F%252Flens%253Fmin-version%253D180%2526lens_data%253DKAw&al=googleapp://lens?lens_data%3DKAw&apn=com.google.android.googlequicksearchbox&amv=301204913&ofl=https://lens.google&isi=284815942&ibi=com.google.GoogleMobile&ius=googleapp&ifl=https://apps.apple.com/us/app/google/id284815942","_self");
+
+}
   
 /* RESET */  
   
