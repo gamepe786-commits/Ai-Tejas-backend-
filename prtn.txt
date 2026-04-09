@@ -649,6 +649,232 @@ transition:0.2s;
   transition:width 0.3s ease;
 
 }
+.history-btn{
+
+  position:fixed;
+
+  right:18px;
+
+  bottom:160px;
+
+  width:50px;
+
+  height:50px;
+
+  background:#333;
+
+  border-radius:50%;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:white;
+
+  box-shadow:0 6px 15px rgba(0,0,0,0.3);
+
+  z-index:999;
+
+  transition:transform 0.2s ease;
+
+}
+
+.history-btn:active{
+
+  transform:scale(1.15);
+
+}
+.history-panel{
+
+  position:fixed;
+
+  top:0;
+
+  left:0;
+
+  width:100%;
+
+  height:100%;
+
+  background:#121212;
+
+  color:white;
+
+  z-index:2000;
+
+  display:none;
+
+  flex-direction:column;
+
+}
+
+.history-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  padding:15px;
+
+  font-size:18px;
+
+}
+
+#historyList{
+
+  padding:10px;
+
+  overflow-y:auto;
+
+}
+
+.history-search{
+
+  padding:10px;
+
+}
+
+.history-search input{
+
+  width:100%;
+
+  padding:10px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:#2a2a2a;
+
+  color:white;
+
+  outline:none;
+
+}
+
+.history-date{
+
+  font-size:13px;
+
+  opacity:0.6;
+
+  margin:10px;
+
+}
+
+.history-item{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  background:#1e1e1e;
+
+  padding:10px;
+
+  border-radius:12px;
+
+  margin:8px 10px;
+
+}
+
+.history-left{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+}
+
+.history-icon{
+
+  width:30px;
+
+  height:30px;
+
+  border-radius:50%;
+
+  background:#333;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  overflow:hidden;
+
+}
+
+.history-icon img{
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+}
+
+.history-text{
+
+  display:flex;
+
+  flex-direction:column;
+
+}
+
+.history-url{
+
+  font-size:13px;
+
+}
+
+.history-time{
+
+  font-size:11px;
+
+  opacity:0.6;
+
+}
+
+.delete-btn{
+
+  cursor:pointer;
+
+  opacity:0.6;
+
+}  
+.clear-history{
+
+  padding:12px 15px;
+
+  font-size:14px;
+
+  color:#ff6d00;
+
+  cursor:pointer;
+
+  font-weight:500;
+
+  border-bottom:1px solid #2a2a2a;
+
+  margin-bottom:5px;
+}
+
+.clear-history:active{
+
+  opacity:0.6;
+
+}
 
 </style>  </head>  <body> <div id="stars"></div> <div class="topbar">  <div id="loaderBar"></div>
   
@@ -853,28 +1079,71 @@ transition:0.2s;
   </div>
 
 </div>  
+<!-- HISTORY BUTTON -->
+
+<div class="history-btn" onclick="openHistory()">
+
+  <span class="material-icons">history</span>
+
+</div>
 
 <!-- AI BUTTON -->  <div class="ai-btn" onclick="openAI()">  <span class="material-icons">chat</span>
 
-</div>    <script>  
+</div>   
+<div id="historyPanel" class="history-panel">
+
+  <div class="history-header">
+
+  <span>History</span>
+
   
+
+  <div style="display:flex; gap:10px;">
+
+    <span class="material-icons" onclick="closeHistory()">close</span>
+
+  </div>
+
+</div>
+
+  <div class="history-search">
+
+    <input type="text" placeholder="Search your history" onkeyup="filterHistory(this.value)">
+
+  </div>
+
+ <div class="clear-history" onclick="clearBrowsingData()">
+
+  Delete browsing data...
+
+</div> 
+  
+  <div id="historyList"></div>
+
+</div>
+
+<script>  
 function searchWeb(){
 
-  var q=document.getElementById("search").value;
+  var q = document.getElementById("search").value;
+
+  let url = "https://www.google.com/search?q=" + q; // 👈 define
+
+  saveHistory(url); // 👈 correct place
 
   startLoading();
 
   setTimeout(()=>{
 
-    window.location="https://www.google.com/search?q="+q;
+    window.location = url;
 
     finishLoading();
 
   },300);
 
-}  
+}
   
-function openSite(url){
+function openSite(url){ saveHistory(url);
 
   startLoading();
 
@@ -1000,13 +1269,12 @@ function goHome(){
 
 window.scrollTo(0,0);
 
-}
- 
+} 
   
 function focusSearch(){  
 document.getElementById("search").focus();  
 }  
-  
+   
 function newTab(){
 
   startLoading();
@@ -1019,7 +1287,7 @@ function newTab(){
 
   },300);
 
-}  
+}
   
 function openShoppingsites(){
 
@@ -1033,7 +1301,7 @@ function openShoppingsites(){
 
   },300);
 
-}  
+} 
   
 function openApps(){
 
@@ -1049,17 +1317,11 @@ function openAI(){
 
   setTimeout(()=>{
 
-    window.open("https://www.meta.ai","_self");
+    window.open("https://protonxshoppingsite.blogspot.com/?m=2","_self");
 
     finishLoading();
 
   },300);
-
-}  
-
-function openLens(){
-
-  window.open("https://search.app.goo.gl/?link=https://goo.gl/iosgoogleapp/default?url%3Dgoogleapp%253A%252F%252Flens%253Fmin-version%253D180%2526lens_data%253DKAw&al=googleapp://lens?lens_data%3DKAw&apn=com.google.android.googlequicksearchbox&amv=301204913&ofl=https://lens.google&isi=284815942&ibi=com.google.GoogleMobile&ius=googleapp&ifl=https://apps.apple.com/us/app/google/id284815942","_self");
 
 }
   
@@ -1187,6 +1449,180 @@ function finishLoading(){
 
   }, remaining);
 
+}
+
+function saveHistory(url){
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  history.unshift({
+
+    url: url,
+
+    time: new Date().toLocaleString()
+
+  });
+
+  if(history.length > 50){
+
+    history.pop();
+
+  }
+
+  localStorage.setItem("history", JSON.stringify(history));
+
+}
+    
+function openHistory(){
+
+  let panel = document.getElementById("historyPanel");
+
+  let list = document.getElementById("historyList");
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  list.innerHTML = "";
+
+  if(history.length === 0){
+
+    list.innerHTML = "<p style='padding:15px'>No history yet</p>";
+
+    panel.style.display = "flex";
+
+    return;
+
+  }
+
+  let lastDate = "";
+
+  history.forEach(function(item, index){
+
+    let date = new Date(item.time).toDateString();
+
+    if(date !== lastDate){
+
+      let dateDiv = document.createElement("div");
+
+      dateDiv.className = "history-date";
+
+      dateDiv.innerText = date;
+
+      list.appendChild(dateDiv);
+
+      lastDate = date;
+
+    }
+
+    let div = document.createElement("div");
+
+    div.className = "history-item";
+
+    div.innerHTML =
+
+      '<div class="history-left">' +
+
+        '<div class="history-icon">' +
+
+  '<img src="https://www.google.com/s2/favicons?domain=' + item.url + '&sz=64">' +
+
+'</div>' +
+
+        '<div class="history-text">' +
+
+          '<div class="history-url">' + item.url + '</div>' +
+
+          '<div class="history-time">' + item.time + '</div>' +
+
+        '</div>' +
+
+      '</div>' +
+
+      '<span class="material-icons delete-btn" onclick="deleteHistory(event,'+index+')">close</span>';
+
+    div.onclick = function(){
+
+      window.location = item.url;
+
+    };
+
+    list.appendChild(div);
+
+  });
+
+  panel.style.display = "flex";
+  
+  window.history.pushState({page:"history"}, "", "");
+
+}
+    
+function closeHistory(){
+
+  document.getElementById("historyPanel").style.display = "none";
+
+}
+
+function deleteHistory(e, index){
+
+  e.stopPropagation(); // 🔥 sabse important
+
+  let history = JSON.parse(localStorage.getItem("history")) || [];
+
+  history.splice(index,1);
+
+  localStorage.setItem("history", JSON.stringify(history));
+
+  openHistory(); // refresh
+
+}
+
+function filterHistory(query){
+
+  let items = document.querySelectorAll(".history-item");
+
+  items.forEach(item=>{
+
+    if(item.innerText.toLowerCase().includes(query.toLowerCase())){
+
+      item.style.display = "flex";
+
+    } else {
+
+      item.style.display = "none";
+
+    }
+
+  });
+
 }  
+
+window.onpopstate = function(){
+
+  let panel = document.getElementById("historyPanel");
+
+  if(panel.style.display === "flex"){
+
+    
+
+    panel.style.display = "none"; // 🔥 history band
+
+    
+
+  }
+
+};
+    
+function clearBrowsingData(){
+
+  let confirmDelete = confirm("Clear all browsing history?");
+
+  if(confirmDelete){
+
+    localStorage.removeItem("history");
+
+    openHistory(); // refresh panel
+
+  }
+
+}    
 </script>  </body>  
-</html>
+</html>  
