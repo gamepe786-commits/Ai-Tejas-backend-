@@ -1538,7 +1538,7 @@ function saveHistory(url){
 
     url: url,
 
-    time: new Date().toLocaleString()
+    time: Date.now()
 
   });
 
@@ -1610,7 +1610,7 @@ function openHistory(){
 
           '<div class="history-url">' + item.url + '</div>' +
 
-          '<div class="history-time">' + item.time + '</div>' +
+          '<div class="history-time">' + new Date(item.time).toLocaleString() + '</div>' +
 
         '</div>' +
 
