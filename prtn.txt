@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?q=80&w=1527&auto=format&fit=crop">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">  
 <style>  
   
 *{  
@@ -67,12 +66,7 @@ z-index:999;
   
 .logo-top{  
 height:var(--logo-size);  
-}  
-  
-.material-icons{  
-font-size:26px;  
-cursor:pointer;  
-}  
+} 
   
 /* MAIN */  
   
@@ -931,16 +925,71 @@ transition:0.2s;
   background:#ff3b30;
   margin-left:5px;
 }
+.icon{
 
-</style>  </head>  <body> <div id="stars"></div> <div class="topbar">  <div id="loaderBar"></div>
-  
-  <span class="material-icons" onclick="openLens()">center_focus_strong</span>
+  width:24px;
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDO36R_GuHMoBlZAbKIgIN0Z2ISZCyqMfn8fdbv7e92sO3WCH65pDo6Gu7AcvpmDi71euY26_AzX7ZNtPGoHcXwiscFqSyRtNg7LJt2Xm2k5E4_PAZ00YvEFuAsddFExoo1buhyqFSvlQ_3KnC2eTQT9wgibV7DCOIgG7wE8u9lbDQvxVOYBMOaUe8k0jH/s1600/1000005326.png" class="logo-top">  <span class="material-icons" id="micBtn" onclick="startVoice()">mic</span>
+  height:24px;
 
-</div>  <div class="main">  <div class="searchbox">  <input id="search" placeholder="Search or type URL">  <button onclick="searchWeb()">  
-<span class="material-icons">search</span>  
-</button>  </div>  <div id="suggestions"></div>  <!-- APPS -->  <div class="apps">  <div onclick="openSite('https://youtube.com')">  
+  display:block;
+
+}
+
+.navicon img{
+
+  width:26px;
+
+  height:26px;
+
+}
+
+button img{
+
+  width:25px;
+
+  height:25px;
+
+}
+.searchbox button img{
+
+  filter: brightness(0) invert(1);
+
+}    
+#micBtn{
+
+  width:24px;
+
+  height:24px;
+
+  cursor:pointer;
+
+}    
+.history-btn img,
+
+.ai-btn img{
+
+  width:28px;
+
+  height:28px;
+
+}
+.history-btn img{
+
+  filter: brightness(0) invert(1);
+
+}
+</style>  </head>  <body> <div id="stars"></div> <div class="topbar">  <div id="loaderBar"></div> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEP_475cheggM2MlhyXsRP75aV0nZiuAiKlw0S1GosYlhlgwol71F4Oo6VMh5te8nh9a9bmjKFQcvCLETKOtq_GMoQFlPFB-9Uo1CNuDVGhoBeLHkPbdc-QtslV_oVxMHGr6mNKt9QbL_fIqgsN0iEuaVuErSlEfUZfbKYM9SM60Zp1oEN1DNxeFA-0IBo/s1600/1000005360.png" class="icon">
+
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD-cOi89thmj4KDP4QuyYvTSr8rKtyMLmkOjZLnJ0PIBbibO_JHZwI6q1inxk27SMEaVUPGAP9vtCcxYDYbo-R6GBVf7dyOOZ3HduBavjLxYNRdOSV4rpii_2OBsTx7qKd33Chg_QzNhiaz3gznLyG92mGOYT7_hf2aO_0XsF5r-is_cMQc313VU1vfLnl/s1600/1000005362.png" class="logo-top">  <img 
+src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHb9LL6kiL21K4tNeCzcWtimf_ugdvKbjVWq6KaxJLDUkf2rijfluzJ2iw_LsnRJq0o3M8NuLCgfkXzzgxIrHsUtm9r08AdtnM_ZZ9Hqhs3PXacZaSDKTqQ8bhUZpU3nuyAtIuFQj8aC5kqyTAiWx5HHco69LEWE0b-LTaCp5nnHL78ZsoW3NrgJvXcKjP/s1600/1000005359.png" 
+id="micBtn" 
+onclick="startVoice()">
+
+</div>  <div class="main">  <div class="searchbox">  <input id="search" placeholder="Search or type URL">  <button onclick="searchWeb()">
+ <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu0mRDFN44Ifmw09_lyntJT_Stywh85mBibGDlu0nRsQ3wvUd6Wnh1Qdgo6y5ZYPYS20UwyC7gcEh34a-vnzzMhPoxFGegmpiSNMv9ddo3h9ziLGvmxka8soKZkrBsL7MVS0D5cnXPgSoLKPvZr9alAYvgsKK5YPKhRIBudtN_1C9c1mazkGrOkiSG9RB-/s1600/1000005366.png">
+</button>  </div>  <div id="suggestions"></div>  
+
+<!-- APPS -->  <div class="apps">  <div onclick="openSite('https://youtube.com')">  
 <div class="icon-box">  
 <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">  
 </div>  
@@ -968,18 +1017,39 @@ transition:0.2s;
 </div>  </div>  <div class="features">  <h3>Fast • Secure • Private</h3>  
 <p>Adblock • Night Mode • Fast Download</p>  </div>  </div>  
 
-<!-- FLOATING NAVBAR -->  <div class="bottomnav">  <span class="material-icons navicon active" onclick="setActive(this);goHome()">home</span>
+<!-- FLOATING NAVBAR -->  <div class="bottomnav">
 
-<span class="material-icons navicon" onclick="setActive(this);focusSearch()">search</span>
+  <span class="navicon active" onclick="setActive(this);goHome()">
 
-<div class="addbtn" onclick="newTab()">  
-<span class="material-icons">add</span>  
-</div>  <span class="material-icons navicon" onclick="setActive(this);openShoppingsites()">shopping_cart</span>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNpo5_E8MKnIQIC-_ADFqH_tgRe9boP9JQqxucixsIub8lFJ8r3Q-t4ZAjZAA48VlqOZg4KYgFg3ehpYGm3dP1qMcZblDZMAd70w_BJP-gKteUXgCMGA9yxynIaj1EZbUiC-yzMFHjHAiVHayfY7pMnHm6LNDg7ldRzbrj941vQvykHs0QfBPEd6t98hPH/s1600/1000005364.png">
 
-<span class="material-icons navicon" onclick="setActive(this);openApps()">apps</span>
+  </span>
+
+  <span class="navicon" onclick="setActive(this);focusSearch()">
+
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu0mRDFN44Ifmw09_lyntJT_Stywh85mBibGDlu0nRsQ3wvUd6Wnh1Qdgo6y5ZYPYS20UwyC7gcEh34a-vnzzMhPoxFGegmpiSNMv9ddo3h9ziLGvmxka8soKZkrBsL7MVS0D5cnXPgSoLKPvZr9alAYvgsKK5YPKhRIBudtN_1C9c1mazkGrOkiSG9RB-/s1600/1000005366.png">
+
+  </span>
+
+  <div class="addbtn" onclick="newTab()">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" width="26">
+
+  </div>
+
+  <span class="navicon" onclick="setActive(this);openShoppingsites()">
+
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUMahI1piLzoDqmTlQ4c891G_HIATMxF-tV_uhO6wT0RJmbu2uZETyF6UYr8lzxjTpsEd0pgo80j63MVIfTD2u9EH4Lb-SNN99oEfk2yc0IVSyZQzbboWZGqSew0ieUBGDHMakYutpW49mFs4SuinbCtPpDSzEgLYjW-j-e6fFTIwOJIZ4ZHHTvGCgnsk6/s1600/1000005370.png">
+
+  </span>
+
+  <span class="navicon" onclick="setActive(this);openApps()">
+
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp18hdkRGfcGmy89_FVLYi4Pv1z8zxf9ObvfLb4XZw1PcO_mgSMLEwh2slQFnGPPykoPkGv2oGyqymcoqVpGeb2USVd9jpEQIyBKdz5mJB9LnCE7Z1NqwHwQfhGrkPXgrhuowPEsLsmGuuSUU4HAyTn7CoaquECydgn8qs4ADwZFpEqPfX01ylGrZ9cwnb/s1600/1000005372.png">
+
+  </span>
 
 </div> 
-  
 <!-- APPS PANEL -->
 
 <div id="appsPanel" class="apps-panel">
@@ -1139,13 +1209,13 @@ transition:0.2s;
 
 <div class="history-btn" onclick="openHistory()">
 
-  <span class="material-icons">history</span>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFO-aBwynp0cNAFUqFMT4X7mktp1kWMrtt6ycpev1r2-qSQ5xB7crArH-BBAoibYEybZJlbd2UMpM57zCJ3reSR0Z-EQ3b-mnSaJHGCROtFpw7g30dKxIAhY9VkVsuEBTxcF1TQfmS_OXaHlEuxmK9LxR4PlK7kNDXvAFbAsWLN-n5_lUiAzXtVmEAc_6N/s1600/1000005378.png">
 
 </div>
 
 <!-- AI BUTTON -->
 <div class="ai-btn" onclick="openAI()">
-  <span class="material-icons">chat</span>
+  <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
 </div>
 
 <!-- HISTORY PANEL -->
