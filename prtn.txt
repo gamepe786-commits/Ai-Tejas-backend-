@@ -927,9 +927,9 @@ transition:0.2s;
 }
 .icon{
 
-  width:24px;
+  width:21px;
 
-  height:24px;
+  height:21px;
 
   display:block;
 
@@ -937,9 +937,9 @@ transition:0.2s;
 
 .navicon img{
 
-  width:26px;
+  width:21px;
 
-  height:26px;
+  height:21px;
 
 }
 
@@ -957,9 +957,9 @@ button img{
 }    
 #micBtn{
 
-  width:24px;
+  width:21px;
 
-  height:24px;
+  height:21px;
 
   cursor:pointer;
 
