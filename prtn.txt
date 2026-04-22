@@ -978,12 +978,26 @@ button img{
   filter: brightness(0) invert(1);
 
 }
+#micWrapper{
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
 </style>  </head>  <body> <div id="stars"></div> <div class="topbar">  <div id="loaderBar"></div> <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEP_475cheggM2MlhyXsRP75aV0nZiuAiKlw0S1GosYlhlgwol71F4Oo6VMh5te8nh9a9bmjKFQcvCLETKOtq_GMoQFlPFB-9Uo1CNuDVGhoBeLHkPbdc-QtslV_oVxMHGr6mNKt9QbL_fIqgsN0iEuaVuErSlEfUZfbKYM9SM60Zp1oEN1DNxeFA-0IBo/s1600/1000005360.png" class="icon" onclick="openLens()">
 
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD-cOi89thmj4KDP4QuyYvTSr8rKtyMLmkOjZLnJ0PIBbibO_JHZwI6q1inxk27SMEaVUPGAP9vtCcxYDYbo-R6GBVf7dyOOZ3HduBavjLxYNRdOSV4rpii_2OBsTx7qKd33Chg_QzNhiaz3gznLyG92mGOYT7_hf2aO_0XsF5r-is_cMQc313VU1vfLnl/s1600/1000005362.png" class="logo-top">  <img 
-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHb9LL6kiL21K4tNeCzcWtimf_ugdvKbjVWq6KaxJLDUkf2rijfluzJ2iw_LsnRJq0o3M8NuLCgfkXzzgxIrHsUtm9r08AdtnM_ZZ9Hqhs3PXacZaSDKTqQ8bhUZpU3nuyAtIuFQj8aC5kqyTAiWx5HHco69LEWE0b-LTaCp5nnHL78ZsoW3NrgJvXcKjP/s1600/1000005359.png" 
-id="micBtn" 
-onclick="startVoice()">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD-cOi89thmj4KDP4QuyYvTSr8rKtyMLmkOjZLnJ0PIBbibO_JHZwI6q1inxk27SMEaVUPGAP9vtCcxYDYbo-R6GBVf7dyOOZ3HduBavjLxYNRdOSV4rpii_2OBsTx7qKd33Chg_QzNhiaz3gznLyG92mGOYT7_hf2aO_0XsF5r-is_cMQc313VU1vfLnl/s1600/1000005362.png" class="logo-top">  
+
+<div id="micWrapper" onclick="startVoice()">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHb9LL6kiL21K4tNeCzcWtimf_ugdvKbjVWq6KaxJLDUkf2rijfluzJ2iw_LsnRJq0o3M8NuLCgfkXzzgxIrHsUtm9r08AdtnM_ZZ9Hqhs3PXacZaSDKTqQ8bhUZpU3nuyAtIuFQj8aC5kqyTAiWx5HHco69LEWE0b-LTaCp5nnHL78ZsoW3NrgJvXcKjP/s1600/1000005359.png" id="micBtn">
+
+</div>
 
 </div>  <div class="main">  <div class="searchbox">  <input id="search" placeholder="Search or type URL">  <button onclick="searchWeb()">
  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiu0mRDFN44Ifmw09_lyntJT_Stywh85mBibGDlu0nRsQ3wvUd6Wnh1Qdgo6y5ZYPYS20UwyC7gcEh34a-vnzzMhPoxFGegmpiSNMv9ddo3h9ziLGvmxka8soKZkrBsL7MVS0D5cnXPgSoLKPvZr9alAYvgsKK5YPKhRIBudtN_1C9c1mazkGrOkiSG9RB-/s1600/1000005366.png">
@@ -1303,7 +1317,7 @@ function openSite(url){ saveHistory(url);
   
 function startVoice(){
 
-const mic = document.getElementById("micBtn");
+const mic = document.getElementById("micWrapper");
 
 mic.classList.add("mic-active");
 
